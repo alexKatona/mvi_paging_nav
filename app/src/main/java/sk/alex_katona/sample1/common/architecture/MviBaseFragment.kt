@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.fragment.app.Fragment
+import com.hannesdorfmann.mosby3.FragmentMviDelegate
+import com.hannesdorfmann.mosby3.FragmentMviDelegateImpl
 import com.hannesdorfmann.mosby3.MviDelegateCallback
 import com.hannesdorfmann.mosby3.mvi.MviPresenter
 import com.hannesdorfmann.mosby3.mvp.MvpView
@@ -153,15 +155,5 @@ abstract class MviBaseFragment<V : MvpView, M, P : MviPresenter<V, M>> : BaseFra
 
     protected fun isRestoringViewState(): Boolean {
         return isRestoringViewState
-    }
-
-    fun restart(bundle: Bundle? = null) {
-        bundle?.let { arguments = it }
-        activity?.supportFragmentManager?.let {
-            if (!it.isStateSaved) {
-                getMvpDelegate().recreatePresenter()
-                it.beginTransaction().detach(this).attach(this).commitAllowingStateLoss()
-            }
-        }
     }
 }

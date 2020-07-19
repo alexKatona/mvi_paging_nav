@@ -1,5 +1,6 @@
 package sk.alex_katona.sample1.common.architecture
 
+import com.hannesdorfmann.mosby3.mvi.MviBasePresenter
 import com.jakewharton.rxrelay2.PublishRelay
 import io.reactivex.Observable
 import io.reactivex.Observer
