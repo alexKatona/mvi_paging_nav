@@ -28,3 +28,14 @@ fun loadAvatar(context: Context, url: String, view: ImageView) {
         .circleCrop()
         .into(view)
 }
+
+fun loadErrorImage(context: Context, view: ImageView) {
+    Glide.with(context)
+        .load("https://www.thebluediamondgallery.com/wooden-tile/images/error.jpg")
+        .apply(
+            RequestOptions()
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+        )
+        .circleCrop()
+        .into(view)
+}

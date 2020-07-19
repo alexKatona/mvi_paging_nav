@@ -8,9 +8,6 @@ import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
@@ -21,6 +18,7 @@ import sk.alex_katona.sample1.R
 import sk.alex_katona.sample1.common.AppNavigator
 import sk.alex_katona.sample1.common.AppScreens
 import sk.alex_katona.sample1.common.architecture.MviBaseFragment
+import sk.alex_katona.sample1.helpers.loadErrorImage
 import sk.alex_katona.sample1.helpers.show
 import javax.inject.Inject
 
@@ -76,14 +74,7 @@ class UserListFragment : MviBaseFragment<UserListView, UserListViewState, UserLi
             userAdapter.retry()
         }
 
-        Glide.with(requireContext())
-            .load("https://www.thebluediamondgallery.com/wooden-tile/images/error.jpg")
-            .apply(
-                RequestOptions()
-                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-            )
-            .circleCrop()
-            .into(iv_error)
+        loadErrorImage(requireContext(), iv_error)
     }
 
     private fun setUpPagingData(data: PagingData<User>) {
