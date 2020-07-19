@@ -5,32 +5,19 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import io.reactivex.subjects.Subject
 import kotlinx.android.synthetic.main.user_item_row.view.*
 import sk.alex_katona.sample1.R
+import sk.alex_katona.sample1.helpers.loadAvatar
 
 class UserViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context)
         .inflate(R.layout.user_item_row, parent, false)
 ) {
     fun bind(user: User) {
+        loadAvatar(itemView.context, user.avatarUrl, itemView.iv_user_avatar)
         itemView.tv_user_name.text = "${user.firstName} ${user.lastName}"
         itemView.tv_user_email.text = user.email
-        Glide.with(itemView.context)
-            .load(user.avatarUrl)
-            .thumbnail(
-                Glide.with(itemView.context).load(R.drawable.avatar_placeholder)
-                    .apply(RequestOptions().circleCrop())
-            )
-            .apply(
-                RequestOptions()
-                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-            )
-            .circleCrop()
-            .into(itemView.iv_user_avatar)
     }
 }
 

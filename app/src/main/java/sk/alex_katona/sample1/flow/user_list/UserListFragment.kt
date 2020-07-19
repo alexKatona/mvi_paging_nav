@@ -34,8 +34,8 @@ class UserListFragment : MviBaseFragment<UserListView, UserListViewState, UserLi
     @Inject
     lateinit var appNavigator: AppNavigator
 
-    lateinit var userAdapter: UserAdapter
-    lateinit var adapter: ConcatAdapter
+    private lateinit var userAdapter: UserAdapter
+    private lateinit var adapter: ConcatAdapter
 
     private val userClickSubject = PublishSubject.create<User>()
 
