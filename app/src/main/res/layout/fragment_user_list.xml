@@ -25,7 +25,9 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <include layout="@layout/error_loading_layout"    android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <include
+        layout="@layout/error_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

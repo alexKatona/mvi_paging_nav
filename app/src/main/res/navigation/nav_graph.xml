@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="sk.alex_katona.sample1.flow.user_list.UserListFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/UserListFragmentLabel"
         tools:layout="@layout/fragment_user_list"
         >
 
@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/SecondFragment"
         android:name="sk.alex_katona.sample1.flow.user_detail.UserDetailFragment"
-        android:label="@string/second_fragment_label"
+        android:label="@string/UserDetailFragmentLabel"
         tools:layout="@layout/fragment_user_details"
         >
 

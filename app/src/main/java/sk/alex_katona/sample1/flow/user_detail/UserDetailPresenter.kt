@@ -27,8 +27,8 @@ class UserDetailPresenter @Inject constructor(
     override fun intents(): List<Observable<out UserDetailPartialState>> {
 
         val initIntent = intent { it.initIntent() }
-            .flatMap {
-                userDetailInteractor.getUserDetail(it)
+            .flatMap { userId ->
+                userDetailInteractor.getUserDetail(userId)
                     .toObservable()
                     .map { UserDetailPartialState.User(it) as UserDetailPartialState }
                     .onErrorReturn { UserDetailPartialState.Error }

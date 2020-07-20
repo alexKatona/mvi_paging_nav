@@ -21,7 +21,7 @@ class UserViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     }
 }
 
-class UserAdapter(val onClickSubject: Subject<User>) : PagingDataAdapter<User, UserViewHolder>(
+class UserAdapter(private val onClickSubject: Subject<User>) : PagingDataAdapter<User, UserViewHolder>(
     UserComparator
 ) {
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
